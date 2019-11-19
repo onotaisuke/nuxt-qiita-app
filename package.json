@@ -1,0 +1,19 @@
+{
+  "name": "qiita-app",
+  "version": "1.0.0",
+  "description": "My primo Nuxt.js project",
+  "author": "ono_taisuke",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.8.0",
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.2"
+  },
+  "devDependencies": {}
+}

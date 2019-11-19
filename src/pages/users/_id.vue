@@ -1,24 +1,44 @@
 <template>
-  <div>
-    <h2>{{ user.id }}</h2>
-    <img :src="user.profile_image_url" width="120" alt="">
-    <p>{{ user.description || 'No description' }}</p>
-    <p>
-      <nuxt-link to="/inspire">
-        <small><b>トップへ</b></small>
-      </nuxt-link>
-    </p>
-    <h2>{{ user.id }}の投稿一覧</h2>
-    <ul>
-      <li v-for="(item,key) in items" :key="key">
-        <h4>
-          <span>{{ item.title }}</span>
-        </h4>
-        <div>{{ item.body.slice(0,50) }}・・・・</div>
-        <p><a target="_blank" :href="item.url">{{ item.url }}</a></p>
-      </li>
-    </ul>
+<div>
+  <p>
+    <nuxt-link to="/inspire">
+      <small><b>トップへ</b></small>
+    </nuxt-link>
+  </p>
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img :src="user.profile_image_url" width="120" alt="">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{{ user.name }}</p>
+          <p class="subtitle is-6">@{{ user.id }}</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <p>{{ user.description || 'No description' }}</p>
+      </div>
+    </div>
   </div>
+  <b>投稿一覧</b>
+  <section>
+      <b-table
+          :data="items">
+          <template slot-scope="props">
+              <b-table-column field="title" label="title">
+                  {{ props.row.title }}
+              </b-table-column>
+              <b-table-column field="url" label="url">
+                  {{ props.row.url }}
+              </b-table-column>
+          </template>
+      </b-table>
+  </section>
+</div>
 </template>
 
 <script>
